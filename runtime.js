@@ -1,4 +1,4 @@
-  GNU nano 5.4                                                                                                                      bard1.js                                                                                                                               function run(code) {
+function run(code) {
   // Create a new environment.
   const env = {
     variables: {},
