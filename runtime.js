@@ -1,21 +1,47 @@
-function run(code) {
-    // Create a new environment.
-    const env = {
-      variables: {},
-      functions: {},
-      objects: {},
-      arrays: {},
-    };
-  
-    // Evaluate the code.
-    try {
-      eval(code, env);
-    } catch (e) {
-      console.log("Code:" + code);
-      console.error(e);
-    }
+  GNU nano 5.4                                                                                                                      bard1.js                                                                                                                               function run(code) {
+  // Create a new environment.
+  const env = {
+    variables: {},
+    functions: {},
+    objects: {},
+    arrays: {},
+  };
+
+  // Add arithmetic operators.
+  env.operators = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b,
+    "*": (a, b) => a * b,
+    "/": (a, b) => a / b,
+    "%": (a, b) => a % b,
+  };
+
+  // Add comparison operators.
+  env.comparators = {
+    "<": (a, b) => a < b,
+    "<=": (a, b) => a <= b,
+    ">": (a, b) => a > b,
+    ">=": (a, b) => a >= b,
+    "==": (a, b) => a == b,
+    "!=": (a, b) => a != b,
+  };
+
+  // Add logical operators.
+  env.logicals = {
+    "&&": (a, b) => a && b,
+    "||": (a, b) => a || b,
+    "!": (a) => !a,
+  };
+
+  // Evaluate the code.
+  try {
+    eval(code, env);
+  } catch (e) {
+    console.log("Code:" + code);
+    console.error(e);
   }
-  
+}
+
   // Example usage.
   run(`
     var x = {
